@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS from input</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script>
+        function submitModal(){
+             document.getElementById("registerBtn").style.display="none";
+             document.getElementById("displayData").style.display="block";
+             document.getElementById("dispName").innerHTML= document.getElementById("txtName").value;
+             document.getElementById("dispPrice").innerHTML= document.getElementById("nmbPrice").value;
+
+             stock ="";
+             availavle =document.getElementById("checkStock").checked;
+             if(availavle){
+                stock="Availabe";
+             }else{
+                stock="Not Availabe";
+             }
+
+
+             document.getElementById("dispStock").innerHTML= stock;
+             
+         }
+     </script>
+</head>
+
+<body>
+   
+
+    <button class="btn btn-primary m-3" id="registerBtn" data-bs-toggle="modal" data-bs-target="#registerModal">Register New
+        Product</button>
+    
+    <div id="inputForm">
+        <div class="modal" id="registerModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title m-6">Register new Product screen</div>
+                        <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <dl>
+                            <dt>Name</dt>
+                            <dd><input type="text" id="txtName" class="form-control"></dd>
+                            <dt>Price</dd>
+                            <dd><input type="number" id="nmbPrice" class="form-control"></dd>
+                            <dt>Stock</dt>
+                            <dd class="form-check form-switch">
+                                <input type="checkbox" id="checkStock" class="form-check-input">
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-dismiss="modal" onclick="submitModal()" id="btnSmbt">Submit</button>
+                        <button class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="displayData" style="display: none;">
+
+        <dl>
+            <dt>Name: </dt>
+            <dd id="dispName"></dd>
+            <dt>Price: </dt>
+            <dd id="dispPrice"></dd>
+            <dt>Stock: </dt>
+            <dd id="dispStock"></dd>
+        </dl>
+
+        <button class="btn btn-primary" data-bs-target="#registerModal" data-bs-toggle="modal">Edit</button>
+
+    </div>
+
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+</body>
+
+</html>
