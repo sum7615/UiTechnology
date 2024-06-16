@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Mobile</title>
+    <script>
+        function verifyMobile(){
+            let mblInput = document.getElementById("mbl").value;
+            let err = document.getElementById("err");
+            let regEx = /\(\+91\)\(555\)\d{4}-\d{4}/;
+
+            if(mblInput.match(regEx)){
+                err.innerHTML="Success";
+            }else{
+                err.innerHTML="Give proper mobile number";
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+
+    <dl>
+        <dt>Moblie</dt>
+        <dd><input type="text" id="mbl"></dd>
+        <dd id="err"></dd>
+        <button onclick="verifyMobile()"> Submit</button>
+    </dl>
+    
+</body>
+</html>
